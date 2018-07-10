@@ -1,12 +1,62 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <title>carriage</title>
-  </head>
-  <body>
-    <div id="app"></div>
-    <!-- built files will be auto injected -->
-  </body>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+  <title>carriage</title>
+  <script>
+		var resize = function(){
+			document.documentElement.style.fontSize = window.innerWidth / 750 * 100 + 'px'
+		};
+		(window.onresize = window.onload = resize) && resize();
+  </script>
+  <style>
+    .loading {
+      position: fixed;
+      z-index: 101;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      background: transparent;
+    }
+
+    .loading div {
+      position: relative;
+      top: 50%;
+      left: 2.65rem;
+      transform: translate3d(0, -50%, 0);
+      width: 2.2rem;
+      height: 2.2rem;
+      background: rgba(0, 0, 0, 1);
+      border-radius: .2rem;
+    }
+
+    .loading img {
+      width: 1rem;
+      margin-top: .35rem;
+    }
+
+    .loading p {
+      font-size: .3rem;
+      color: #c0c0c0;
+      margin-top: .3rem;
+    }
+
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <div class="loading" id="loading">
+      <div>
+        <img src="./src/assets/loading.gif">
+        <p>加载中...</p>
+      </div>
+    </div>
+  </div>
+  <!-- built files will be auto injected -->
+</body>
+
 </html>
