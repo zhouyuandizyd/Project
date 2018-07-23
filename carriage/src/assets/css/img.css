@@ -1,0 +1,126 @@
+#app .img-car {
+    width: 100%;
+    height: 100%;
+}
+
+.img-car {
+    display: flex;
+    flex-direction: column;
+    font-size: .16rem;
+    background: #f4f4f4;
+}
+
+.img-default {
+    background: #fff;
+    margin-top: .85rem;
+    overflow-y: scroll;
+    border-bottom: .2rem solid #f4f4f4;
+}
+
+.img-default img {
+    width: 100px;
+    height: 100%;
+    display: block;
+}
+
+.img-car .title {
+    position: fixed;
+    background: #fff;
+    top: 0;
+    width: 100%;
+    height: .8rem;
+    -webkit-box-align: center;
+    align-items: center;
+    box-sizing: border-box;
+    z-index: 99;
+    display: flex;
+    justify-content: space-around;
+}
+
+.img-car .title p {
+    color: #454545;
+}
+
+.img-default ul,
+.img-list {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.img-default ul li,
+.img-list li {
+    margin-right: .03rem;
+    margin-bottom: .03rem;
+    width: 32.8%;
+    height:2.2rem;
+    padding: 0;
+    box-sizing: border-box;
+    background: #ccc;
+    position: relative;
+}
+
+.img-default ul li div {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    text-align: center;
+    background: rgba(56, 90, 130, .5);
+    color: #fff;
+}
+
+.img-default ul li div p:first-child {
+    font-size: .28rem;
+    margin-top: .7rem;
+}
+
+.img-default ul li div p:nth-child(2) {
+    font-size: .26rem;
+}
+
+.img-default ul li img,
+.img-list li img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+}
+
+.img-default ul li:nth-child(3n+3),
+.img-list li:nth-child(3n+3) {
+    margin-right: 0;
+}
+
+.img-list {
+    background: #f4f4f4;
+    top: 0;
+    text-align: center;
+    position: fixed;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+    width: 100%;
+    height: 100%;
+    z-index: 99;
+}
+.img-swiper{
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,1);
+    display: flex;
+    align-items: center;
+}
+.img-swiper img{
+    width: 100%;
+}
+.img-swiper p{
+    position: absolute;
+    bottom: 7px;
+    color: #fff;
+    z-index: 9999;
+}

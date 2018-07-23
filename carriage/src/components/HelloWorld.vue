@@ -14,47 +14,31 @@ import List from "./common/list.vue";
 import Letter from "./common/letter.vue";
 import MasterList from "./common/MasterList.vue";
 import {debounce,throttle,lazyLoad} from './utils/utils.js'
-// import List from "./list.vue";
+import {mapState} from 'vuex'
 export default {
   name: "App",
   data() {
     return {
-      letter: [],
-      newData: [],
+      // letter: [],
+      // newData: [],
       masterList:[],
       masterCls:''
     };
   },
+  computed:{
+    ...mapState({
+      newData:state=>state.index.newData,
+      letter:(state)=>{
+        return state.index.letter
+      }
+    })
+    // newData(){
+    //   return this.$store.state.index.newData
+    // }
+  },
   methods: {
     getNewList() {
-      fetch("https://baojia.chelun.com/v2-car-getMasterBrandList.html")
-        .then(res => res.json())
-        .then(res => {
-          //处理数据
-          if (res.code === 1) {
-            let letter = [];
-            let newData = [];
-            let len = -1;
-            res.data.forEach(item => {
-              let spelling = item.Spelling[0];
-              if (letter[len] === spelling) {
-                newData[len].list.push(item);
-              } else {
-                len++;
-                letter.push(spelling);
-                newData.push({
-                  spelling,
-                  list: [item]
-                });
-              }
-            });
-            this.letter = letter;
-            this.newData = newData;
-            setTimeout(()=>lazyLoad.init(),10)
-          } else {
-            alert(res.msg);
-          }
-        });
+      this.$store.dispatch('getBrandList')
     },
     getMasterList(id) {
       fetch("https://baojia.chelun.com/v2-car-getMakeListByMasterBrandId.html?MasterID=" + id)

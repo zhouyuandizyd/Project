@@ -4,8 +4,8 @@
             <p>{{item.spelling}}</p>
             <ul>
                 <li v-for='(item,index) in item.list' :key='index' @click='getMasterList(item.MasterID)'>
-                    <img :data-src="item.CoverPhoto">
-                    <!-- <img v-lazy="item.CoverPhoto"> -->
+                    <!-- <img :data-src="item.CoverPhoto"> -->
+                    <img v-lazy="item.CoverPhoto">
                     <span>{{item.Name}}</span>
                 </li>
             </ul>
