@@ -1,13 +1,19 @@
 <!--index.wxml-->
 <view class="container">
-  <view class="userinfo">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-    <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    </block>
-  </view>
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
-  </view>
+    <view class='info'>
+        <image src='{{list[current].image}}'></image>
+        <progress percent="{{precent}}" />
+        <view>
+            <button type="{{index==currentAnswer.index?currentAnswer.type:''}}" wx:for="{{nameList}}" wx:key="{{index}}" data-index="{{index}}" bindtap='clickAnswer' data-name="{{item}}">{{item}}</button>
+        </view>
+    </view>
+    <view wx:for="{{list}}" wx:key="{{index}}" class='item' bindtap='click' data-index='{{index}}'>
+        <block>
+            <image src="{{item.image}}"></image>
+            <view>
+                <text>{{item.title}}</text>
+                <text>{{item.author}}</text>
+            </view>
+        </block>
+    </view>
 </view>

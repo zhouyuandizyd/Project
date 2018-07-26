@@ -1,0 +1,7 @@
+<!--pages/detail/detail.wxml-->
+<view>
+    <text>{{info.title}}</text>
+    <text>{{info.author}}</text>
+    <image src='{{info.image}}'></image>
+    <audio poster="{{info.image}}" name="{{info.title}}" author="{{info.author}}" src="{{info.src}}" id="myAudio" controls loop></audio>
+</view>
